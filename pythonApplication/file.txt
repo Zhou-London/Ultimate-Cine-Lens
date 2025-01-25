@@ -1,0 +1,5 @@
+print(completion.choices[0].message.parsed.actions.filming.shotType.value)
+print(completion.choices[0].message.parsed.actions.filming.shotAngleAndPosition.value)
+print(completion.choices[0].message.parsed.actions.filming.cameraMovement.value)
+
+scene=1 action=1 description='A girl in a school uniform is standing with her hands clasped in front of her, looking forward.' dramaticAction=DramaticAction(Gesture='Hands clasped', FacialExpression='Neutral', Movement='No', Costume='School uniform') filming=Filming(shotType=<ShotType.FullShot: 'Full Shot'>, shotAngleAndPosition=<ShotAngleAndPosition.EyeLevel: 'Eye Level'>, cameraMovement=<CameraMovement.NoMovement: 'No Movement'>) editing=Editing(Transition='No')
