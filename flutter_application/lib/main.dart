@@ -251,6 +251,7 @@ class SelectPage extends StatelessWidget {
               ),
             ),
           ),
+          //"Start Test" Page Ends
 
           
           // Column(
@@ -524,16 +525,464 @@ class InformationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          }, 
-          icon: Icon(Icons.arrow_back_ios_new)),
-        title: Text('Information'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+
+      //body: Text(structureDict[imageFile].toString()),
+
+      body: SingleChildScrollView(
+        child: Column( 
+        children: [
+          Row(
+            children: [
+              SizedBox(width: MediaQuery.of(context).size.width * 0.02, height:130,),
+              GestureDetector(
+                onTap: (){
+                  Navigator.of(context).pop();
+                },
+                child: ClipPath(
+                  clipper: SuperellipseClipper(n: 8.0),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.07,
+                    height: 70,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyan, Colors.pinkAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                      'X',
+                      style: TextStyle(
+                        fontSize: 48,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+                ),
+              ),
+              //"X" button ends
+
+              SizedBox(width: MediaQuery.of(context).size.width * 0.3185,),
+              //"Info" Icon Starts
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: 75,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                      'Information',
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+              //"Info" Icon Ends
+            ],
+          ),
+
+          SizedBox(height: MediaQuery.of(context).size.height * 0.03,),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(width: 30,height:50,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                      'Description',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                     structureDict[imageFile]['description'],
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+            ]
+          ),
+
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(width: 30,height:50,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                      'Transition',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                     structureDict[imageFile]['editing']['transition'],
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+            ]
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(width: 30,height:50,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                      'Shot Type',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                     structureDict[imageFile]['filming']['shotType'],
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+            ]
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(width: 30,height:50,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                      'Shot Angle and Position',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                     structureDict[imageFile]['filming']['shotAngleAndPosition'],
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+            ]
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(width: 30,height:50,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                      'Gesture',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                     structureDict[imageFile]['dramaticAction']['gesture'],
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+            ]
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(width: 30,height:50,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                      'Facial Expression',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                     structureDict[imageFile]['dramaticAction']['FacialExpression'],
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+            ]
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(width: 30,height:50,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.1,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                      'Costume',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
+              ClipPath(
+                clipper: SuperellipseClipper(n: 10.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child:Text(
+                     structureDict[imageFile]['dramaticAction']['costume'],
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                      )
+                    )
+                  ),
+              ),
+            ]
+          ),
+
+        ],
       ),
-      body: Text(structureDict[imageFile].toString()),
+    )
     );
   }
 }
