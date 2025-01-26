@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
@@ -7,9 +9,7 @@ import 'api.dart';
 int totalCount = 0;
 var structureDict = {};
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -106,6 +106,36 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+//Clipper for Super Ellipse
+class SuperellipseClipper extends CustomClipper<Path> {
+  final double n;
+
+  SuperellipseClipper({required this.n});
+  
+  @override
+  Path getClip(Size size) {
+    double width = size.width;
+    double height = size.height;
+    Path path = Path();
+
+    for (double t = 0; t <= 2 * pi; t += 0.01) {
+      double x = pow(cos(t).abs(), 2 / n) * (width / 2) * (cos(t) >= 0 ? 1: -1);
+      double y = pow(sin(t).abs(), 2 / n) * height / 2 * (sin(t) >= 0 ? 1: -1);
+      if(t == 0){
+        path.moveTo(width / 2 + x, height / 2 + y);
+      } else {
+        path.lineTo(width / 2 + x, height / 2 + y);
+      }
+    }
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
+}
+
+//Initial Page
 class SelectPage extends StatelessWidget {
   const SelectPage({super.key});
   
@@ -113,31 +143,139 @@ class SelectPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('Select Image'),
-      ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  if (appState.items.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const TestPage()),
-                    );
-                  }
-                },
-                child: Text('Start Test'),
+          SizedBox(height: 80),
+          //Title
+          ClipPath(
+            clipper: SuperellipseClipper(n: 6.0),
+            child: Container(
+              
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: 200,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.cyanAccent, Colors.blueAccent],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
               ),
-              IconButton(
-                icon: Icon(Icons.add),
-                onPressed: appState.addNewItem)
-            ]
+              alignment: Alignment.center,
+              child: RichText(
+                text: TextSpan(
+                  text: 'Very Cool Name',
+                  style: TextStyle(
+                    fontSize: 72,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: '  v0.1',
+                        style: TextStyle(
+                        fontSize: 28,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ]
+                ),
+              )
+            ),
           ),
-          Divider(),
+          //Title End
+
+          SizedBox(height: 40),
+
+          //"Import Image" Button
+          GestureDetector(
+            onTap: appState.addNewItem,
+            child: ClipPath(
+              clipper: SuperellipseClipper(n: 4.0),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.2,
+                height: 70,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.cyan, Colors.blueAccent],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+                alignment: Alignment.center,
+                child:Text(
+                  'Import',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                  )
+                )
+              ),
+            ),
+          ),
+          //"Import Image" Button End
+          SizedBox(height: 10),
+          //"Start Test" Button
+          GestureDetector(
+            onTap: (){
+              if(appState.items.isNotEmpty){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TestPage()),
+                );
+              }
+            },
+            child: ClipPath(
+              clipper: SuperellipseClipper(n: 4.0),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.2,
+                height: 70,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [Colors.cyan, Colors.blueAccent],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+                alignment: Alignment.center,
+                child:Text(
+                  'Analyse',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                  )
+                )
+              ),
+            ),
+          ),
+
+          
+          // Column(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     IconButton.filledTonal(
+          //       //icon: Icon(Icons.add),
+          //       icon:Text("Import Photo"),
+          //       onPressed: appState.addNewItem),
+          //     ElevatedButton(
+          //       onPressed: () {
+          //         if (appState.items.isNotEmpty) {
+          //           Navigator.push(
+          //             context,
+          //             MaterialPageRoute(builder: (context) => const TestPage()),
+          //           );
+          //         }
+          //       },
+          //       child: Text('Run'),
+          //     )
+          //   ]
+          // ),
+
+          //Divider(),
+
           Expanded(
             child: ListView.builder(
               itemCount: appState.items.length,
