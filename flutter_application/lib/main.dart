@@ -353,6 +353,10 @@ class _TestPageState extends State<TestPage> {
   List<String> shotAngleAndPosition = ['Low Angle', 'Eye Level', 'High Angle', 'Tilt', 'Over-the-Sholder Shot', 'Top Shot', 'No'];
   List<List<String>> dropdownValue = [];
   var answer = {'Shot Type': 'No', 'Shot Angle and Position': 'No'};
+  bool checkVisibiity = false;
+  List<IconData> checkIcon = [Icons.clear, Icons.clear];
+  List<Color> checkColor = [Colors.red, Colors.red];
+  
 
   @override
   void initState(){
@@ -402,6 +406,13 @@ class _TestPageState extends State<TestPage> {
                     );
                   }).toList(),
                 ),
+                Visibility(
+                  visible: checkVisibiity,
+                  child: Icon(
+                    checkIcon[0],
+                    color: checkColor[0],
+                    ),
+                ),
 
                 Text(' Shot Angle and Position: ', style: textStyle),
                 DropdownButton(
@@ -419,17 +430,33 @@ class _TestPageState extends State<TestPage> {
                     );
                   }).toList(), 
                 ),
+                Visibility(
+                  visible: checkVisibiity,
+                  child: Icon(
+                    checkIcon[1],
+                    color: checkColor[1],
+                    ),
+                ),
 
                 ElevatedButton(onPressed: () {
                   setState(() {
                     if (dropdownValue[currentItem][0] == answer['Shot Type']) {
+                      checkIcon[0] = Icons.check;
+                      checkColor[0] = Colors.green;
                     } else {
-                      dropdownValue[currentItem][0] = answer['Shot Type']!;
+                      // dropdownValue[currentItem][0] = answer['Shot Type']!;
+                      checkIcon[0] = Icons.clear;
+                      checkColor[0] = Colors.red;
                     }
                     if (dropdownValue[currentItem][1] == answer['Shot Angle and Position']) {
+                      checkIcon[1] = Icons.check;
+                      checkColor[1] = Colors.green;
                     } else {
-                      dropdownValue[currentItem][1] = answer['Shot Angle and Position']!;
+                      // dropdownValue[currentItem][1] = answer['Shot Angle and Position']!;
+                      checkIcon[1] = Icons.clear;
+                      checkColor[1] = Colors.red;
                     }
+                    checkVisibiity = true;
                   });
                 }, child: Text('Check')),
 
@@ -437,6 +464,9 @@ class _TestPageState extends State<TestPage> {
                   setState(() {
                     if (currentItem != 0) {
                     currentItem -= 1;
+                    checkVisibiity = false;
+                    checkIcon = [Icons.clear, Icons.clear];
+                    checkColor = [Colors.red, Colors.red];
                     }
                   });
                 },
@@ -447,6 +477,9 @@ class _TestPageState extends State<TestPage> {
                   setState(() {
                     if (currentItem != appState.items.length - 1) {
                     currentItem += 1;
+                    checkVisibiity = false;
+                    checkIcon = [Icons.clear, Icons.clear];
+                    checkColor = [Colors.red, Colors.red];
                     }
                   });
                 }, 
