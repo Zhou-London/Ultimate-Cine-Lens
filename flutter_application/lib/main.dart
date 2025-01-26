@@ -164,7 +164,7 @@ class SelectPage extends StatelessWidget {
               alignment: Alignment.center,
               child: RichText(
                 text: TextSpan(
-                  text: 'Very Cool Name',
+                  text: 'Ultimate Cine Lens',
                   style: TextStyle(
                     fontSize: 72,
                     color: Colors.white,
@@ -570,7 +570,7 @@ class InformationPage extends StatelessWidget {
                 clipper: SuperellipseClipper(n: 10.0),
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.2,
-                    height: 75,
+                    height: 95,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [Colors.cyanAccent, Colors.blueAccent],
@@ -615,7 +615,7 @@ class InformationPage extends StatelessWidget {
                     child:Text(
                       'Description',
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -630,16 +630,17 @@ class InformationPage extends StatelessWidget {
                     height: 150,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        colors: [Colors.blueGrey, Colors.blueAccent],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
                     ),
                     alignment: Alignment.center,
                     child:Text(
-                     structureDict[imageFile]['description'],
+                      textAlign: TextAlign.center,
+                      structureDict[imageFile]['description'],
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -670,8 +671,9 @@ class InformationPage extends StatelessWidget {
                     alignment: Alignment.center,
                     child:Text(
                       'Transition',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -686,16 +688,17 @@ class InformationPage extends StatelessWidget {
                     height: 150,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        colors: [Colors.blueGrey, Colors.blueAccent],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
                     ),
                     alignment: Alignment.center,
                     child:Text(
+                      textAlign: TextAlign.center,
                      structureDict[imageFile]['editing']['transition'],
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -725,8 +728,9 @@ class InformationPage extends StatelessWidget {
                     alignment: Alignment.center,
                     child:Text(
                       'Shot Type',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -741,16 +745,17 @@ class InformationPage extends StatelessWidget {
                     height: 150,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        colors: [Colors.blueGrey, Colors.blueAccent],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
                     ),
                     alignment: Alignment.center,
                     child:Text(
+                      textAlign: TextAlign.center,
                      structureDict[imageFile]['filming']['shotType'],
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -780,8 +785,9 @@ class InformationPage extends StatelessWidget {
                     alignment: Alignment.center,
                     child:Text(
                       'Shot Angle and Position',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -796,7 +802,7 @@ class InformationPage extends StatelessWidget {
                     height: 150,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        colors: [Colors.blueGrey, Colors.blueAccent],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
@@ -805,7 +811,7 @@ class InformationPage extends StatelessWidget {
                     child:Text(
                      structureDict[imageFile]['filming']['shotAngleAndPosition'],
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -836,7 +842,7 @@ class InformationPage extends StatelessWidget {
                     child:Text(
                       'Gesture',
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -851,16 +857,17 @@ class InformationPage extends StatelessWidget {
                     height: 150,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        colors: [Colors.blueGrey, Colors.blueAccent],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
                     ),
                     alignment: Alignment.center,
                     child:Text(
+                      textAlign: TextAlign.center,
                      structureDict[imageFile]['dramaticAction']['gesture'],
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -889,9 +896,10 @@ class InformationPage extends StatelessWidget {
                     ),
                     alignment: Alignment.center,
                     child:Text(
+                      textAlign: TextAlign.center,
                       'Facial Expression',
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -906,16 +914,16 @@ class InformationPage extends StatelessWidget {
                     height: 150,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        colors: [Colors.blueGrey, Colors.blueAccent],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
                     ),
                     alignment: Alignment.center,
                     child:Text(
-                     structureDict[imageFile]['dramaticAction']['FacialExpression'],
+                     structureDict[imageFile]['dramaticAction']['facialExpression'],
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -944,9 +952,10 @@ class InformationPage extends StatelessWidget {
                     ),
                     alignment: Alignment.center,
                     child:Text(
+                      textAlign: TextAlign.center,
                       'Costume',
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
@@ -961,16 +970,17 @@ class InformationPage extends StatelessWidget {
                     height: 150,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.cyanAccent, Colors.blueAccent],
+                        colors: [Colors.blueGrey, Colors.blueAccent],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
                     ),
                     alignment: Alignment.center,
                     child:Text(
+                      textAlign: TextAlign.center,
                      structureDict[imageFile]['dramaticAction']['costume'],
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white
                       )
